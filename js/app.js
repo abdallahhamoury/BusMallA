@@ -13,6 +13,7 @@ let productNames =[];
 let votes=[];
 let views=[];
 
+
 function Products(productName) {
     this.productName = productName.split('.')[0];
     this.img = 'imgs/' + productName;
@@ -36,6 +37,7 @@ let leftImgIn;
 let midImgIn;
 let rightImgIn;
 
+let arrayIndex = [];
 function renderRandomImg() {
 
     leftImgIn = randomIndex();
@@ -45,14 +47,14 @@ function renderRandomImg() {
     // console.log(leftImgIn);
     // console.log(midImgIn);
     // console.log(rightImgIn);
-    while (leftImgIn === rightImgIn || leftImgIn === midImgIn || midImgIn === rightImgIn) {
+    while (leftImgIn === rightImgIn || leftImgIn === midImgIn || midImgIn === rightImgIn || arrayIndex.includes(leftImgIn) || arrayIndex.includes(midImgIn) || arrayIndex.includes(rightImgIn)) {
 
         leftImgIn = randomIndex();
         midImgIn = randomIndex();
         rightImgIn = randomIndex();
-
+     
     }
-
+    arrayIndex = [leftImgIn,midImgIn,rightImgIn];
 
     //  console.log(product);
     leftImgEl.setAttribute('src', product[leftImgIn].img)
